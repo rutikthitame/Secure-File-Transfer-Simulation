@@ -1,41 +1,57 @@
-#  Secure File Transfer Simulation  
+#  Secure-File-Transfer-Simulation
 
-A *Windows-based simulation project* that demonstrates *cryptography* and *system-level programming* using the *Win32 SDK*.  
-The project implements *Blowfish algorithm,Caesar Cipher* and *XOR Cipher* for secure file encryption/decryption and performs *low-level file handling* via Windows system calls instead of standard C library functions.  
+##  Project Overview
+`EncryptDecryptServer` is a **C++ DLL-based encryption and decryption library** with a console-based client program.  
+The project demonstrates the implementation of **multiple encryption algorithms** (XOR Cipher, Caesar Cipher, and Blowfish) and integrates them into a **menu-driven application** that allows encrypting/decrypting files dynamically using a loaded DLL.  
 
-The cryptographic logic is modularized into a *Dynamic Link Library (DLL)*, making the functionality reusable by multiple client applications.  
-
----
-
-##  Project Overview  
-This project showcases:  
-- Low-level *Win32 API programming*  
-- *DLL development* and integration  
-- *File-based encryption & decryption*  
-- Practical *cryptographic techniques*  
+The DLL exposes encryption/decryption functions, and the client interacts with these using **`LoadLibrary`** and **`GetProcAddress`**, showcasing real-world usage of **dynamic linking** in Windows.  
 
 ---
 
-##  Features  
-
--  *File Encryption & Decryption*  
-  - Encrypt and decrypt text files securely.  
-
--  *Multiple Algorithms*  
-  - *Caesar Cipher* (character shift-based substitution)  
-  - *XOR Cipher* (bitwise XOR with user-defined key)
-  - *Blowfish algorithm*  
-
--  *System-Level File Handling*  
-  - Uses *Win32 APIs* (CreateFile, ReadFile, WriteFile, CloseHandle)  
-  - Avoids high-level C standard library functions.  
-
--  *DLL Integration*  
-  - Cryptographic functions are modularized into a *custom DLL*.  
-  - Client applications *dynamically load* and use the encryption/decryption services.  
-
--  *Low-Level Programming Practice*  
-  - Worked extensively with *pointers, buffers, and string processing*.  
-  - Debugging with *Visual Studio* and *Windows tools*.
+##  Key Features
+-  **XOR Cipher** → Simple symmetric bitwise encryption with a single key.  
+-  **Caesar Cipher** → Classical shift-based substitution cipher using an integer key.  
+-  **Blowfish Cipher** → Block cipher (64-bit block size) with Feistel structure.  
+-  **File-based operations** → Works directly on source and destination files.  
+-  **Menu-driven console client** → User-friendly interface for selecting algorithms.  
+-  **Dynamic DLL loading** → Functions are called via function pointers using `GetProcAddress`.  
 
 ---
+
+##  Learning Outcomes
+By working with this project, you will learn:  
+-  How to create and export functions in a **Windows DLL** (`__declspec(dllexport)`).  
+-  How to **load DLLs dynamically** in C++ using `LoadLibrary` and `GetProcAddress`.  
+-  Implementation of **basic (XOR, Caesar)** and **advanced (Blowfish)** encryption algorithms.  
+-  File handling in C++ using **low-level I/O (`_open`, `_read`, `_write`)**.  
+-  Working with **function pointers** to call DLL functions at runtime.  
+
+---
+
+##  Example Usage
+
+### 1. Run the Client
+```bash
+g++ EncrypDecryptClient.cpp -o EncryptClient
+EncryptClient.exe
+
+### 2. Select the operation
+Select the operation that you want to perform
+ 1 : Encrypt file
+ 2 : Decrypt file
+
+### 3. Select the algorithm
+Select the Encryption algorithm
+ 1 : Encrypt using XOR operation
+ 2 : Encrypt using Caesar cipher
+ 3 : Encrypt using Blowfish
+
+### 3. Encrypt/Decrypt file using key
+Enter the source file name
+input.txt
+Enter the destination file name
+encrypted.txt
+Enter the key (int)
+
+Encryption complete!
+
