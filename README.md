@@ -35,21 +35,28 @@ By working with this project, you will learn:
 g++ EncrypDecryptClient.cpp -o EncryptClient
 EncryptClient.exe
 ```
-
+### Select operation
+```bash
 Select the operation that you want to perform
  1 : Encrypt file
  2 : Decrypt file
-
+```
+### Select algorithm
+```bash
 Select the Encryption algorithm
  1 : Encrypt using XOR operation
  2 : Encrypt using Caesar cipher
  3 : Encrypt using Blowfish
+```
 
+### Enter source file, destination file and key
+```bash
 Enter the source file name
 input.txt
 Enter the destination file name
 encrypted.txt
 Enter the key (int)
+```
 
 Encryption complete!
 
