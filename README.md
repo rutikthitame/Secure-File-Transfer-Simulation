@@ -34,6 +34,7 @@ By working with this project, you will learn:
 ```bash
 g++ EncrypDecryptClient.cpp -o EncryptClient
 EncryptClient.exe
+```
 
 Select the operation that you want to perform
  1 : Encrypt file
